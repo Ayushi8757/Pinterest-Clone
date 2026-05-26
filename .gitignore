@@ -1,0 +1,20 @@
+# Environment file — NEVER push this
+.env
+
+# Uploaded user content — don't push real user files
+uploads/pins/*
+uploads/profiles/*
+
+# Keep the folders but not the files inside
+!uploads/pins/.gitkeep
+!uploads/profiles/.gitkeep
+
+# Composer vendor folder — others install this themselves
+vendor/
+
+# OS and editor junk
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log

@@ -1,0 +1,295 @@
+:root {
+  --red: #e60023;
+  --side-w: 88px;
+  --top-h: 88px;
+  --nav-h: 88px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.app-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1200;
+  width: var(--side-w);
+  background: #fff;
+  border-right: 1px solid #ece8e2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 18px 0 22px;
+}
+
+.app-side-logo {
+  width: 52px;
+  height: 52px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 22px;
+  text-decoration: none;
+}
+
+.app-side-logo svg {
+  width: 34px;
+  height: 34px;
+  fill: var(--red);
+}
+
+.app-side-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+}
+
+.app-side-link {
+  position: relative;
+  width: 52px;
+  height: 52px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #111;
+  font-size: 1.45rem;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.app-side-link:hover {
+  background: #f4f1eb;
+  color: #111;
+  transform: translateY(-1px);
+}
+
+.app-side-link.active {
+  background: #111;
+  color: #fff;
+}
+
+.app-side-settings {
+  margin-top: auto;
+}
+
+.app-side-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--red);
+  border: 2px solid #fff;
+}
+
+.app-header {
+  position: fixed;
+  top: 0;
+  left: var(--side-w);
+  right: 0;
+  z-index: 1100;
+  height: var(--top-h);
+  background: #fff;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 18px 24px;
+  border-bottom: 1px solid #ece8e2;
+}
+
+.app-header-search {
+  flex: 1;
+  min-width: 0;
+  height: 60px;
+  border-radius: 20px;
+  background: #dfddd7;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 0 18px;
+}
+
+.app-header-search i {
+  color: #5f5a54;
+  font-size: 1.55rem;
+}
+
+.app-header-search input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #3a3530;
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+.app-header-search input::placeholder {
+  color: #5f5a54;
+}
+
+.app-header-user {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.app-avatar-btn,
+.app-user-caret {
+  border: none;
+  background: transparent;
+  padding: 0;
+}
+
+.app-avatar-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #f6b948;
+  color: #111;
+  font-weight: 700;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.app-avatar-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.app-user-caret {
+  color: #66615b;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.app-account-menu {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  min-width: 280px;
+  padding: 12px;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+  display: none;
+}
+
+.app-account-menu.show {
+  display: block;
+}
+
+.app-account-label {
+  color: #777;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.app-account-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid #ece8e2;
+  border-radius: 14px;
+  padding: 10px;
+  text-decoration: none;
+  color: #111;
+  margin-bottom: 10px;
+}
+
+.app-account-card img,
+.app-account-initial {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--red);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.app-account-copy {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.app-account-copy strong,
+.app-account-copy small {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.app-account-copy small {
+  color: #777;
+  font-size: 0.78rem;
+}
+
+.app-account-item {
+  display: block;
+  padding: 10px 12px;
+  border-radius: 12px;
+  color: #111;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.app-account-item:hover {
+  background: #f4f1eb;
+}
+
+.app-account-logout {
+  color: var(--red);
+}
+
+@media (max-width: 768px) {
+  .app-sidebar {
+    width: 72px;
+  }
+
+  .app-header {
+    left: 72px;
+    padding: 14px 16px;
+  }
+
+  .app-header-search {
+    height: 52px;
+  }
+
+  .app-header-search input {
+    font-size: 0.95rem;
+  }
+
+  :root {
+    --side-w: 72px;
+    --top-h: 80px;
+    --nav-h: 80px;
+  }
+}

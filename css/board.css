@@ -1,0 +1,138 @@
+:root {
+      --pin-red: #E60023;
+      --pin-red-dark: #ad081b;
+      --bg: #f8f7f5;
+      --nav-h: 64px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); }
+
+    /* NAV */
+    .pnav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      height: var(--nav-h); background: #fff;
+      box-shadow: 0 2px 12px rgba(0,0,0,.07);
+      display: flex; align-items: center; gap: 12px; padding: 0 20px;
+    }
+    .pnav .logo { font-size: 35px; color: var(--pin-red); text-decoration: none; }
+    .pnav .nav-actions { margin-left: auto; display: flex; gap: 8px; align-items: center; }
+    .pnav .nav-actions a {
+      width: 40px; height: 40px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: #111; text-decoration: none; font-size: 1.2rem;
+      transition: background .2s;
+    }
+    .pnav .nav-actions a:hover { background: #f0eeeb; }
+    .btn-addpin {
+      background: var(--pin-red); color: #fff; border: none;
+      border-radius: 24px; padding: 8px 18px; font-weight: 600;
+      font-size: .88rem; text-decoration: none;
+      display: flex; align-items: center; gap: 6px;
+      transition: background .2s; white-space: nowrap;
+    }
+    .btn-addpin:hover { background: var(--pin-red-dark); color: #fff; }
+
+    /* BOARD HEADER */
+    .board-header {
+      padding-top: calc(var(--nav-h) + 48px);
+      text-align: center;
+      padding-bottom: 32px;
+    }
+    .board-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      margin-bottom: 8px;
+    }
+    .board-header .meta {
+      color: #767676;
+      font-size: .95rem;
+      margin-bottom: 20px;
+    }
+    .board-actions { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+    .btn-outline-act {
+      background: #fff; border: 2px solid #ddd; border-radius: 24px;
+      padding: 8px 20px; font-weight: 600; font-size: .88rem;
+      cursor: pointer; display: flex; align-items: center; gap: 6px;
+      transition: border-color .2s, background .2s;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .btn-outline-act:hover { background: #f0eeeb; border-color: #bbb; }
+    .btn-red-act {
+      background: var(--pin-red); color: #fff; border: none;
+      border-radius: 24px; padding: 10px 24px;
+      font-weight: 700; font-size: .9rem;
+      cursor: pointer; display: flex; align-items: center; gap: 6px;
+      transition: background .2s; font-family: 'DM Sans', sans-serif;
+    }
+    .btn-red-act:hover { background: var(--pin-red-dark); }
+
+    /* MASONRY GRID */
+    .masonry {
+      columns: 5 200px;
+      gap: 14px;
+      padding: 0px 120px 60px;
+    }
+    .pin-card {
+      break-inside: avoid;
+      margin-bottom: 14px;
+      border-radius: 16px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 1px 4px rgba(0,0,0,.08);
+      cursor: pointer;
+      transition: transform .2s, box-shadow .2s;
+      position: relative;
+    }
+    .pin-card:hover { transform: scale(1.02); box-shadow: 0 8px 24px rgba(0,0,0,.13); }
+    .pin-card img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      min-height: 140px;
+      max-height: 400px;
+    }
+
+    /* Save button overlay */
+    .pin-card .overlay {
+      position: absolute; inset: 0; border-radius: 16px;
+      background: rgba(0,0,0,0); transition: background .2s;
+      display: flex; flex-direction: column;
+      justify-content: flex-start; padding: 10px;
+    }
+    .pin-card:hover .overlay { background: rgba(0,0,0,.20); }
+    .pin-card .save-btn {
+      align-self: flex-end;
+      background: var(--pin-red); color: #fff;
+      border: none; border-radius: 20px;
+      padding: 7px 14px; font-weight: 700;
+      font-size: .82rem; opacity: 0;
+      transition: opacity .2s; cursor: pointer;
+    }
+    .pin-card:hover .save-btn { opacity: 1; }
+
+    .pin-info { padding: 8px 10px 10px; }
+    .pin-info .title { font-weight: 600; font-size: .88rem; margin: 0; }
+    .pin-info .pin-cat { font-size: .78rem; color: #767676; margin-top: 2px; }
+
+    /* Empty state */
+    .empty-state {
+      text-align: center;
+      padding: 80px 20px;
+    }
+    .empty-icon {
+      font-size: 3.5rem;
+      color: #ccc;
+      margin-bottom: 16px;
+    }
+    .empty-state h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+    }
+    .empty-state p { color: #767676; max-width: 340px; margin: 0 auto 24px; }
+
+    @media (max-width: 576px) {
+      .masonry { columns: 2 140px; }
+      .board-header h1 { font-size: 1.7rem; }
+    }
